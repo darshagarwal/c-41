@@ -1,14 +1,17 @@
-class Umbrella{
+class Umbrella {
     constructor(x,y){
         var options = {
-            isStatic:true,
+            isStatic: true,
         }
-        this.x = x;
-        this.y = y;
-        this.image= loadImage("proc41images/walking_1.png");
-        World.add(world,this.image); 
+        this.image = loadImage("images/walking_1.png");
+        this.umbrella = Bodies.circle(x,y,50,options);
+        this.radius = 50;
+        World.add(world, this.umbrella)
     }
+
     display(){
-        image(this.image, 0, 0, this.width, this.height);
+        var pos = this.umbrella.position;
+        imageMode(CENTER);
+        image(this.image,pos.x,pos.y+70,300,300);
     }
 }
